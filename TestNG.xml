@@ -2,9 +2,39 @@
 
 <suite name="RestAssured Training" >
 
-    <test name="CallMasterPlaylistTest">
+    <!--<test name="Traverse Json Response in Loop">
         <classes>
-            <class name="com.nickb.restassured.testcases.SimpleGetXmlRequestTest"/>
+            <class name="com.nickb.restassured.testcases.TraverseJsonTest"/>
         </classes>
     </test>
+    <test name="Call MasterPlaylistTest From Vmap Converted To Json">
+        <classes>
+            <class name="com.nickb.restassured.testcases.CallMasterPlaylistFromVmapConvertedToJsonTest"/>
+        </classes>
+    </test>
+
+    <test name="Call MasterPlaylist from Json Test">
+        <classes>
+            <class name="com.nickb.restassured.testcases.CallMasterPlaylistFromJsonTest"/>
+        </classes>
+    </test>
+
+    <test name="Simple POST Request Test">
+        <classes>
+            <class name="com.nickb.restassured.testcases.ServiceMediaPostRequestTest"/>
+        </classes>
+    </test>
+
+    <test name="Simple GET Request Test">
+        <classes>
+            <class name="com.nickb.restassured.testcases.CallNikaJsonTest"/>
+        </classes>
+    </test>-->
+
+    <test name="Books">
+        <classes>
+            <class name="com.nickb.restassured.testcases.library_api.ExcelDrivenTest"/>
+        </classes>
+    </test>
+
 </suite>

@@ -8,10 +8,10 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class SimpleGetRequestTest extends BaseTest {
+public class CallNikaJsonTest extends BaseTest {
 
     @Test
-    public void simpleGetRequestTest() {
+    public void checkNikaJsonTest() {
 
         RestAssured.baseURI = envConfig.getProperty("s_prod-https");
 

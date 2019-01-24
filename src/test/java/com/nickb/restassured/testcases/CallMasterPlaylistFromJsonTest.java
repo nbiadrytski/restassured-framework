@@ -13,10 +13,10 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 
-public class CallMasterPlaylistTest extends BaseTest{
+public class CallMasterPlaylistFromJsonTest extends BaseTest {
 
     @Test
-    public void checkMicaResponseTest() throws IOException {
+    public void checkMasterPlaylistFromJsonTest() throws IOException {
         
         RestAssured.baseURI = envConfig.getProperty("s_prod-https");
         Response resp = given().
@@ -29,15 +29,12 @@ public class CallMasterPlaylistTest extends BaseTest{
                 header("Server","nginx/1.10.1").
                 extract().response();
         
-        String responseString = resp.asString();
-
-        // gut seamless uuid
-        JsonPath micaJson = new JsonPath(responseString);
-        String documentid = micaJson.get("documentid");
+        JsonPath micaJson = convertResponseToJson(resp);
+        String uuid = micaJson.get("documentid");
         
         // call master.m3u8 with extracted uuid
         given().relaxedHTTPSValidation().param("proxy", false).
-                when().get(envConfig.getProperty("s_endpoint-path") + documentid + "/master.m3u8").
+                when().get(envConfig.getProperty("s_endpoint-path") + uuid + "/master.m3u8").
                 then().assertThat().statusCode(200).and().
                 body(containsString("#EXTM3U"));
 
