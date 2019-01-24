@@ -33,7 +33,7 @@
 
     <test name="Books">
         <classes>
-            <class name="com.nickb.restassured.testcases.library_api.ExcelDrivenTest"/>
+            <class name="com.nickb.restassured.testcases.library_api.DynamicJsonTest"/>
         </classes>
     </test>
 

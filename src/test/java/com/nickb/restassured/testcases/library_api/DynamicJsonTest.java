@@ -1,14 +1,14 @@
 package com.nickb.restassured.testcases.library_api;
 
 import com.nickb.restassured.base.BaseTest;
+import com.nickb.restassured.utils.LibraryApiTestUtils;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 
-
-public class ExcelDrivenTest extends BaseTest{
+public class DynamicJsonTest extends BaseTest{
     
     @Test
     public void addBookTest() {
@@ -17,12 +17,7 @@ public class ExcelDrivenTest extends BaseTest{
 
         Response resp = given().log().all().
             header("Content-Type", "application/json").
-            body("{\n" +
-                    "\"name\":\"Learn Appium Automation with Java\",\n" +
-                    "\"isbn\":\"sjdhgvshj\",\n" +
-                    "\"aisle\":\"327678\",\n" +
-                    "\"author\":\"John Foe\"\n" +
-                    "}").
+            body(LibraryApiTestUtils.addBookPayload("The Sea", "asdfvasv", "666888", "Kim Bartek")).
             when().
                 post("/Library/Addbook.php").
             then().log().all().assertThat().statusCode(200).
@@ -30,7 +25,7 @@ public class ExcelDrivenTest extends BaseTest{
 
         JsonPath jp = convertResponseToJson(resp);
         
-        String id = jp.get("id");
+        String id = jp.get("ID");
         
         System.out.println(id);
                 
