@@ -33,7 +33,7 @@
 
     <test name="Books">
         <classes>
-            <class name="com.nickb.restassured.testcases.library_api.DynamicJsonTest"/>
+            <class name="com.nickb.restassured.testcases.jiraapi.JiraApiTest"/>
         </classes>
     </test>
 
